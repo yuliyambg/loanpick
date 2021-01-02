@@ -1,0 +1,113 @@
+<%#=form_for @borrower do |f| %>
+<!--<div>-->
+<!--  <%#= f.label :first_name %><br>-->
+<%#= f.text_field :first_name %>
+<!--</div>-->
+
+<!--  <div>-->
+<!--  <%#= f.label :last_name %><br>-->
+<%#= f.text_field :last_name %>
+<!--  </div>-->
+
+<!--  <div>-->
+<!--  <%#= f.label :dob %><br>-->
+<%#= f.date_field :dob %>
+<!--  </div>-->
+
+<!--  <div>-->
+<!--  <%#= f.label :street_address %><br>-->
+<%#= f.text_field :street_address %>
+<!--  </div>-->
+
+<!--  <div>-->
+<!--  <%#= f.label :city %><br>-->
+<%#= f.text_field :city %>
+<!--  </div>-->
+
+<!--  <div>-->
+<!--  <%#= f.label :zipcode %><br>-->
+<%#= f.text_field :zipcode %>
+<!--  </div>-->
+
+<!--  <div>-->
+<!--  <%#= f.label :email %><br>-->
+<%#= f.email_field :email %>
+<!--  </div>-->
+
+<!--  <div>-->
+<!--  <%#= f.label :password %><br>-->
+<!--  <%#= f.password_field :password %><br>-->
+<!--  </div>-->
+<!--   <br>-->
+<!--  <div>-->
+<%#= f.submit %>
+<!--  </div>-->
+
+<%# end %>
+<h1>Create Borrower's Account</h1>
+
+<% if @borrower.errors.any? %>
+  <div id="error_explanation">
+    <h2>There are some errors:</h2>
+    <ul>
+      <% @borrower.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%=form_for @borrower do |f| %>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:first_name].any? %>">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:last_name].any? %>">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:dob].any? %>">
+    <%= f.label :dob %><br>
+    <%= f.date_field :dob %>
+  </div>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:street_address].any? %>">
+    <%= f.label :street_address %><br>
+    <%= f.text_field :street_address %>
+  </div>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:city].any? %>">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:zipcode].any? %>">
+    <%= f.label :zipcode %><br>
+    <%= f.text_field :zipcode %>
+  </div>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:email].any? %>">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:password].any? %>"
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br>
+  </div>
+  <br>
+
+  <div class="field <%= ' field_with_errors' if @borrower.errors[:password].any? %>"
+  <%= f.label :confirm_password %><br>
+  <%= f.password_field :password_confirmation %><br>
+  </div>
+  <br>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
