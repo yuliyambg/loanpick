@@ -1,0 +1,39 @@
+
+<h1> Apply for a New Loan</h1>
+<h3> Up to $50,000</h3>
+<%= form_for([@borrower,@loan]) do |f| %>
+  <div>
+    <%=f.label :amount %> $
+    <%=f.number_field :amount,{min: 0}%>
+
+  </div>
+
+  <br>
+
+  <div>
+    <%=f.label :category %>
+    <%= f.select :category,[['Student'],['HIL'],['Consolidation']] %>
+  </div>
+
+  <br>
+
+  <div>
+    <%=f.label :term %>
+    <%= f.select :term,[['120 months fixed'], ['180 months variable']] %>
+  </div>
+
+  <br>
+
+  <div>
+
+    <%=f.label :lender %>
+    <%= f.collection_select :lender_id, Lender.all, :id, :name %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= f.submit value='Apply Now' %>
+  </div>
+
+<% end %>

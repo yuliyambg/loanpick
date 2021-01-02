@@ -1,0 +1,24 @@
+<h2> Log In</h2>
+
+<div class="err"><i> <%= @error %></i> </div>
+
+<%= form_tag('/signin', method: :post) do %>
+
+  <div>
+    <%= label_tag(:email, "Your email:") %>
+
+    <%= email_field_tag(:email, nil, class: "special-input") %>
+  </div>
+
+  <div>
+    <%= label_tag(:password, "Your password:") %>
+    <%= password_field_tag(:password, nil) %>
+  </div>
+
+  <div>
+    <%= submit_tag("Log In") %>
+  </div>
+
+<% end %>
+
+<h2><%= link_to "Log in with Google", '/auth/google_oauth2' %></h2>

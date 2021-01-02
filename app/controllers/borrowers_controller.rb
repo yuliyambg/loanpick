@@ -1,4 +1,5 @@
 class BorrowersController < ApplicationController
+  before_action :require_login, except: [:new, :create]
 
   def new
     @borrower = Borrower.new
@@ -10,11 +11,16 @@ class BorrowersController < ApplicationController
 
   def create
     @borrower = Borrower.new(borrower_params)
+    if @borrower.save
+      session[:borrower_id] = @borrower.id
+      redirect_to borrower_loans_path(@borrower)
+    else
+      render :new
+    end
   end
 
   def show
     @borrower = Borrower.find_by(id: params[:id])
-    @borrower.save
   end
 
   private
