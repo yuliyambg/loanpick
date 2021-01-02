@@ -1,0 +1,51 @@
+<%#= @borrower.first_name %>
+<%= flash[:notice] %>
+<%= flash[:warning] %>
+<%# if @loan.errors.any? %>
+<!--  <div id="error_explanation">-->
+<!--    <h2>There are some errors:</h2>-->
+<!--    <ul>-->
+<%# @loan.errors.full_messages.each do |message| %>
+<!--        <li><%#= message %></li>-->
+<%# end %>
+<!--    </ul>-->
+<!--  </div>-->
+<%# end %>
+
+<h2>Student</h2>
+<% @loans.student.each do |loan|%>
+  <div>
+    <%= loan.id %>
+    <%= loan.category %>
+    <%= loan.amount %>
+    <%= loan.term %>
+    <%= loan.lender.name %>
+  </div>
+<% end %>
+
+<h2>HIL</h2>
+<% @loans.hil.each do |loan|%>
+  <div>
+    <%= loan.id %>
+    <%= loan.category %>
+    <%= loan.amount %>
+    <%= loan.term %>
+    <%= loan.lender.name %>
+  </div>
+<% end %>
+
+
+<h2>Consolidation</h2>
+<% @loans.consolidation.each do |loan|%>
+  <div>
+    <%= loan.id %>
+    <%= loan.category %>
+    <%= loan.amount %>
+    <%= loan.term %>
+    <%= loan.lender.name %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to 'Apply Now', new_borrower_loan_path(current_borrower)%>
+</div>
