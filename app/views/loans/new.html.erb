@@ -1,3 +1,13 @@
+<% if @loan.errors.any? %>
+  <div id="error_explanation">
+    <h2>There are some errors:</h2>
+    <ul>
+      <% @loan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <h1> Apply for a New Loan</h1>
 <h3> Up to $50,000</h3>
