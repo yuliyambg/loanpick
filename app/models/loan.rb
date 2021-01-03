@@ -1,6 +1,8 @@
 class Loan < ApplicationRecord
   belongs_to :borrower
   belongs_to :lender
+  validates :amount, :inclusion => 1..50000
+  # validates :category, inclusion: { in: %w[Student HIL Consolidation] }
 
   scope :student, -> { where(category: "Student") }
   scope :hil, -> { where(category: "HIL") }
