@@ -52,7 +52,8 @@ class SessionController < ApplicationController
       @borrower = Borrower.find_by(email: request.env["omniauth.auth"]["extra"]["id_info"]["email"])
       if @borrower.nil?
         # @borrower = Borrower.create(username: request.env["omniauth.auth"]["email"], github_uid: request.env["omniauth.auth"]["uid"], password: "github")
-        @borrower = Borrower.create(username: request.env["omniauth.auth"]["extra"]["id_info"]["email"])
+        # @borrower = Borrower.create(username: request.env["omniauth.auth"]["extra"]["id_info"]["email"])
+        redirect_to new_borrowers_path
       end
       #log in
       session[:borrower_id] = @borrower.id
