@@ -42,6 +42,10 @@ class LoansController < ApplicationController
 
   def edit
     @loan = @borrower.loans.where(id: params[:id]).first
+    if @loan.accept
+      flash[:warning] = "Lender already approved loan ID: #{@loan.id} "
+      redirect_to borrower_loans_path(@borrower)
+    end
   end
 
   def update
@@ -60,6 +64,12 @@ class LoansController < ApplicationController
       flash[:warning] = "Loan does not exist"
       redirect_to borrower_loans_path(session[:borrower_id])
     end
+  end
+
+  def destroy
+    @loan = @borrower.loans.where(id: params[:id]).first.destroy
+    flash[:warning] = "Loan is deleted"
+    redirect_to borrower_loans_path(@borrower)
   end
 
   private
