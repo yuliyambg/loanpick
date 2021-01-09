@@ -4,4 +4,6 @@
   <%= loan.amount %>
   <%= loan.term %>
   <%= loan.lender.name %>
+  <%= link_to 'Edit', edit_borrower_loan_path(borrower.id,loan.id) %>
+  <%= link_to 'Show', borrower_loan_path(borrower.id,loan.id) %>
 </div>
