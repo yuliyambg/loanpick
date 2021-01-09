@@ -44,7 +44,14 @@
 <!--  </div>-->
 
 <%# end %>
-<h1>Create Borrower's Account</h1>
+
+<div>
+  <h1>Create Borrower's Account</h1>
+</div>
+
+<!--<div class="d-flex justify-content-left">-->
+  <div class="paddingleft">
+
 
 <% if @borrower.errors.any? %>
   <div id="error_explanation">
@@ -111,3 +118,4 @@
   </div>
 
 <% end %>
+</div>

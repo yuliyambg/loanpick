@@ -1,49 +1,53 @@
-<% if @loan.errors.any? %>
-  <div id="error_explanation">
-    <h2>There are some errors:</h2>
-    <ul>
-      <% @loan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%# if @loan.errors.any? %>
+<!--  <div id="error_explanation">-->
+<!--    <h2>There are some errors:</h2>-->
+<!--    <ul>-->
+      <%# @loan.errors.full_messages.each do |message| %>
+<!--        <li><%#= message %></li>-->
+      <%# end %>
+<!--    </ul>-->
+<!--  </div>-->
+<%# end %>
 
-<h1> Apply for a New Loan</h1>
-<h3> Up to $50,000</h3>
-<%= form_for([@borrower,@loan]) do |f| %>
-  <div>
-    <%=f.label :amount %> $
-    <%=f.number_field :amount,{min: 0}%>
+<!--<div class="paddingleft">-->
+<!--<h1> Apply for a New Loan</h1>-->
+<!--<h3> Up to $50,000</h3>-->
+<%#= form_for([@borrower,@loan]) do |f| %>
+<!--  <div>-->
+<!--    <%#=f.label :amount %> $-->
+    <%#=f.number_field :amount,{min: 0}%>
 
-  </div>
+<!--  </div>-->
 
-  <br>
+<!--  <br>-->
 
-  <div>
-    <%=f.label :category %>
-    <%= f.select :category,[['Student'],['HIL'],['Consolidation']] %>
-  </div>
+<!--  <div>-->
+    <%#=f.label :category %>
+    <%#= f.select :category,[['Student'],['HIL'],['Consolidation']] %>
+<!--  </div>-->
 
-  <br>
+<!--  <br>-->
 
-  <div>
-    <%=f.label :term %>
-    <%= f.select :term,[['120 months fixed'], ['180 months variable']] %>
-  </div>
+<!--  <div>-->
+    <%#=f.label :term %>
+    <%#= f.select :term,[['120 months fixed'], ['180 months variable']] %>
+<!--  </div>-->
 
-  <br>
+<!--  <br>-->
 
-  <div>
+<!--  <div>-->
 
-    <%=f.label :lender %>
-    <%= f.collection_select :lender_id, Lender.all, :id, :name %>
-  </div>
+    <%#=f.label :lender %>
+    <%#= f.collection_select :lender_id, Lender.all, :id, :name %>
+<!--  </div>-->
 
-  <br>
+<!--  <br>-->
 
-  <div>
-    <%= f.submit value='Apply Now' %>
-  </div>
+<!--  <div>-->
+    <%#= f.submit value='Apply Now' %>
+<!--  </div>-->
 
-<% end %>
+<%# end %>
+<!--</div>-->
+
+<%= render partial: "form" %>
