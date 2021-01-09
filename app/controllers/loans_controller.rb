@@ -40,6 +40,19 @@ class LoansController < ApplicationController
     end
   end
 
+  def edit
+    @loan = @borrower.loans.where(id: params[:id]).first
+  end
+
+  def update
+    @loan = @borrower.loans.where(id: params[:id]).first
+    if @loan.update(loan_params)
+      redirect_to borrower_loans_path(@borrower)
+    else
+      render :edit
+    end
+  end
+
   def show
     # @borrower = Borrower.where(id: params[:borrower_id]).first
     @loan = @borrower.loans.where(id: params[:id]).first
