@@ -1,0 +1,70 @@
+<div>
+  <h1>Create Lender's Account</h1>
+</div>
+
+<!--<div class="d-flex justify-content-left">-->
+<div class="paddingleft">
+
+
+  <% if @lender.errors.any? %>
+    <div id="error_explanation">
+      <h2>There are some errors:</h2>
+      <ul>
+        <% @lender.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%=form_for @lender do |f| %>
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:first_name].any? %>">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:last_name].any? %>">
+      <%= f.label :street_address %><br>
+      <%= f.text_field :street_address %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:dob].any? %>">
+      <%= f.label :city %><br>
+      <%= f.text_field :city %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:street_address].any? %>">
+      <%= f.label :zipcode %><br>
+      <%= f.text_field :zipcode %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:city].any? %>">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:email].any? %>">
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+    </div>
+
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:password].any? %>"
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+    </div>
+    <br>
+
+    <div class="field <%= ' field_with_errors' if @lender.errors[:password].any? %>"
+    <%= f.label :confirm_password %><br>
+    <%= f.password_field :password_confirmation %><br>
+    </div>
+    <br>
+
+    <div>
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+  </div>

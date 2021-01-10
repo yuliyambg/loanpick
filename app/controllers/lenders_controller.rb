@@ -1,10 +1,22 @@
 class LendersController < ApplicationController
 
+  def new
+    @lender = Lender.new
+  end
 
   def index
     @lenders = Lender.all
   end
 
+  def create
+    @lender = Lender.new(lender_params)
+    if @lender.save
+      session[:lender_id] = @lender.id
+      redirect_to lender_lender_loans_path(@lender)
+    else
+      render :new
+    end
+  end
 
   def show
     @lender = Lender.where(id: params[:id]).first
