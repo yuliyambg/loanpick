@@ -7,7 +7,7 @@ class LendersController < ApplicationController
 
 
   def show
-    @lender = Lender.find_by(params[:id])
+    @lender = Lender.find(params[:id])
   end
 
   private
