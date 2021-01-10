@@ -4,6 +4,7 @@
   <%= loan.amount %>
   <%= loan.term %>
   <%= loan.lender.name %>
+  <%= loan.accept ? "ACCEPTED": "WAITING" %>
   <%= link_to 'Edit', edit_borrower_loan_path(borrower.id,loan.id) unless loan.accept%>
   <%= link_to 'Show', borrower_loan_path(borrower.id,loan.id) %>
   <%= link_to 'Destroy', { action: :destroy, id: loan.id }, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
 
   def new
-    @borrower = Borrower.new
+    # @borrower = Borrower.new
   end
 
   # def create
