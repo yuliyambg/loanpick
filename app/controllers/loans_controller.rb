@@ -80,9 +80,13 @@ class LoansController < ApplicationController
   def get_borrower
     # @borrower = Borrower.find(params[:borrower_id])
     @borrower = Borrower.where(id: params[:borrower_id]).first
-    if @borrower.nil?  || (@borrower && (@borrower.id != session[:borrower_id]))
+    if @borrower.nil? ||(@borrower && (@borrower.id != session[:borrower_id]))
       flash[:notice] = "Do not have access"
-      redirect_to borrower_loans_path(session[:borrower_id])
+      if session[:borrower_id]
+        redirect_to borrower_loans_path(session[:borrower_id])
+      else
+        redirect_to root_path
+      end
     end
   end
 end

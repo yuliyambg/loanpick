@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # end
 
   def require_login
-    unless current_borrower
+    unless current_borrower || current_lender
       redirect_to root_url
     end
   end

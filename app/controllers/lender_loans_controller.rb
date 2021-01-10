@@ -31,13 +31,18 @@ class LenderLoansController < ApplicationController
   def get_lender
     # @lender = Lender.find(params[:lender_id])
     @lender = Lender.where(id: params[:lender_id]).first
-    unless @lender
-      flash[:warning] = "Lender doesn't exists"
-      redirect_to lenders_path(@lenders)
+    # unless @lender
+    #   flash[:warning] = "Lender doesn't exists"
+    #   redirect_to lenders_path(@lenders)
+    # end
+    if @lender.nil?  || (@lender && (@lender.id != session[:lender_id]))
+      flash[:notice] = "Do not have access"
+      if session[:lender_id]
+        redirect_to lender_lender_loans_path(session[:lender_id])
+      else
+        redirect_to root_path
+      end
     end
-    # if @borrower.nil?  || (@borrower && (@borrower.id != session[:borrower_id]))
-    #   flash[:notice] = "Do not have access"
-    #   redirect_to borrower_loans_path(session[:borrower_id])
   end
 
   def lender_loan_params
