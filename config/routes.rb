@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post '/signin', to: 'session#create'
   delete 'session', to: 'session#destroy'
 
+  get '/lender_signin', to: 'lenders_session#new'
+  post '/lender_signin', to: 'lenders_session#create'
 
   # match '/auth/:provider/callback', to: 'session#create', via: [:get, :post]
   get '/auth/:provider/callback', to: 'session#create'

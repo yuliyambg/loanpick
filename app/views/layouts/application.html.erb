@@ -29,16 +29,24 @@
         <%#= link_to "Log Out", session_path, class:"navbar-brand",method:'delete' %>
         <%# end %>
 
-        <% if logged_in? %>
+        <% if is_borrower_logged_in? %>
 
           <%= link_to "#{current_borrower.first_name}'s profile", borrower_path(current_borrower), class:"navbar-brand"%>
           <%= link_to "#{current_borrower.first_name}'s loans", borrower_loans_path(current_borrower), class:"navbar-brand"%>
           <%= link_to "Log Out", session_path, class:"navbar-brand",method:'delete' %>
 
-        <% else %>
+        <% elsif is_lender_logged_in? %>
 
-          <a class="navbar-brand" href="<%= new_borrower_path %>"/>Sign Up</a>
+          <%= link_to "#{current_lender.name}'s profile", lender_path(current_lender), class:"navbar-brand"%>
+          <%= link_to "#{current_lender.name}'s loans", lender_lender_loans_path(current_lender), class:"navbar-brand"%>
+          <%= link_to "Log Out", session_path, class:"navbar-brand",method:'delete' %>
+
+        <%else %>
+
+          <a class="navbar-brand" href="<%= new_borrower_path %>"/>SignUp</a>
+          <a class="navbar-brand" href="<%= new_lender_path %>"/>Lender's SignUp</a>
           <%= link_to "Log in", signin_path, class:"navbar-brand" %>
+          <%= link_to "Lender Log in", lender_signin_path, class:"navbar-brand" %>
 
         <% end %>
 

@@ -29,6 +29,6 @@ class LendersController < ApplicationController
   private
 
   def lender_params
-    params.require(:lender).permit(:name, :street_address, :city, :zipcode, :phone, :email)
+    params.require(:lender).permit(:name, :street_address, :city, :zipcode, :phone, :email, :password, :password_confirmation)
   end
 end
