@@ -19,15 +19,6 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="navbar-brand" href="<%= root_url %>">Home</a>
-        <%# if !current_borrower %>
-        <!--          <a class="navbar-brand" href="<%#= new_borrower_path %>"/>Sign Up</a>-->
-        <%#= link_to "Log in", signin_path, class:"navbar-brand" %>
-        <%# end %>
-        <%# if current_borrower %>
-        <%#= link_to "#{current_borrower.first_name}'s profile", borrower_path(current_borrower), class:"navbar-brand"%>
-        <%#= link_to "#{current_borrower.first_name}'s loans", borrower_loans_path(current_borrower), class:"navbar-brand"%>
-        <%#= link_to "Log Out", session_path, class:"navbar-brand",method:'delete' %>
-        <%# end %>
 
         <% if is_borrower_logged_in? %>
 
