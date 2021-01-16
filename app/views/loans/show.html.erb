@@ -1,2 +1,12 @@
-<%=@loan.category %>
-<%=@loan.amount %>
+<table style="width:100%">
+  <tr>
+    <th>loan category</th>
+    <th>loan amount USD</th>
+    <th>loan term</th>
+  </tr>
+  <tr>
+    <td><%=@loan.category %></td>
+    <td><%=@loan.amount %></td>
+    <td><%=@loan.term %></td>
+  </tr>
+</table>

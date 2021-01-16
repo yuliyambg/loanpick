@@ -1,6 +1,21 @@
-<%= @lender.name %>
-<%= @lender.street_address %>
-<%= @lender.city %>
-<%= @lender.zipcode %>
-<%= @lender.phone %>
-<%#= @lender.email %>
+<%= flash[:notice] %>
+<br>
+
+<table style="width:100%">
+  <tr>
+    <th>lender name</th>
+    <th>lender str address</th>
+    <th>lender city</th>
+    <th>lender zipcode</th>
+    <th>lender phone </th>
+    <th>lender email</th>
+  </tr>
+  <tr>
+    <td><%= @lender.name %></td>
+    <td><%= @lender.street_address %></td>
+    <td><%= @lender.city %></td>
+    <td><%= @lender.zipcode %></td>
+    <td><%= @lender.phone %></td>
+    <td><%= @lender.email %></td>
+  </tr>
+</table>

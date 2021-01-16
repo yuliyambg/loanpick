@@ -1,7 +1,20 @@
-<%= @borrower.first_name %>
-<%= @borrower.last_name %>
-<%= @borrower.dob %>
-<%= @borrower.street_address %>
-<%= @borrower.city %>
-<%= @borrower.zipcode %>
-<%= @borrower.email %>
+<table style="width:100%">
+  <tr>
+    <th>borrower first name</th>
+    <th>borrower last name</th>
+    <th>borrower DOB</th>
+    <th>borrower str address</th>
+    <th>borrower city</th>
+    <th>borrower zipcode</th>
+    <th>borrower email</th>
+  </tr>
+<tr>
+  <td><%= @borrower.first_name %></td>
+  <td><%= @borrower.last_name %></td>
+  <td><%= @borrower.dob %></td>
+  <td><%= @borrower.street_address %></td>
+  <td><%= @borrower.city %></td>
+  <td><%= @borrower.zipcode %></td>
+  <td><%= @borrower.email %></td>
+</tr>
+</table>

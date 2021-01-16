@@ -43,10 +43,10 @@
 
         <%else %>
 
-          <a class="navbar-brand" href="<%= new_borrower_path %>"/>SignUp</a>
-          <a class="navbar-brand" href="<%= new_lender_path %>"/>Lender's SignUp</a>
-          <%= link_to "Log in", signin_path, class:"navbar-brand" %>
-          <%= link_to "Lender Log in", lender_signin_path, class:"navbar-brand" %>
+          <a class="navbar-brand" href="<%= new_borrower_path %>"/>Borrower SignUp</a>
+          <a class="navbar-brand" href="<%= new_lender_path %>"/>Lender SignUp</a>
+          <%= link_to "Borrower LogIn", signin_path, class:"navbar-brand" %>
+          <%= link_to "Lender LogIn", lender_signin_path, class:"navbar-brand" %>
 
         <% end %>
 

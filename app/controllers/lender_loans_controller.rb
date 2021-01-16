@@ -2,7 +2,6 @@ class LenderLoansController < ApplicationController
   before_action :get_lender
 
   def index
-    # @lender = Lender.find(params[:lender_id])
     @loans = @lender.loans
   end
 
@@ -13,7 +12,6 @@ class LenderLoansController < ApplicationController
       flash[:warning] = "Loan does not exists"
       redirect_to lender_lender_loans_path(@lender)
     end
-    # @loan = Loan.find(params)
   end
 
   def update

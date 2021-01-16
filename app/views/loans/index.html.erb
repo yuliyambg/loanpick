@@ -1,33 +1,65 @@
-<%#= @borrower.first_name %>
 <%= flash[:notice] %>
 <%= flash[:warning] %>
-<%# if @loan.errors.any? %>
-<!--  <div id="error_explanation">-->
-<!--    <h2>There are some errors:</h2>-->
-<!--    <ul>-->
-<%# @loan.errors.full_messages.each do |message| %>
-<!--        <li><%#= message %></li>-->
-<%# end %>
-<!--    </ul>-->
-<!--  </div>-->
-<%# end %>
 
 <h2>Student</h2>
+<table style="width:100%">
+  <tr>
+    <th>loan id</th>
+    <th>loan category</th>
+    <th>loan amount</th>
+    <th>loan term</th>
+    <th>lender name</th>
+    <th>loan status</th>
+    <th>loan edit</th>
+    <th>loan show</th>
+    <th>loan destroy</th>
+  </tr>
 <% @loans.student.each do |loan|%>
- <%= render partial: "loan_details", locals: {loan: loan, borrower: @borrower} %>
-<% end %>
+    <tr>
+      <%= render partial: "loan_details", locals: {loan: loan, borrower: @borrower} %>
+    </tr>
+  <% end %>
+</table>
 
 <h2>HIL</h2>
+<table style="width:100%">
+  <tr>
+    <th>loan id</th>
+    <th>loan category</th>
+    <th>loan amount</th>
+    <th>loan term</th>
+    <th>lender name</th>
+    <th>loan status</th>
+    <th>loan edit</th>
+    <th>loan show</th>
+    <th>loan destroy</th>
+  </tr>
 <% @loans.hil.each do |loan|%>
-  <%= render partial: "loan_details", locals: {loan: loan, borrower: @borrower} %>
-<% end %>
-
+    <tr>
+      <%= render partial: "loan_details", locals: {loan: loan, borrower: @borrower} %>
+    </tr>
+  <% end %>
+</table>
 
 <h2>Consolidation</h2>
+  <table style="width:100%">
+    <tr>
+      <th>loan id</th>
+      <th>loan category</th>
+      <th>loan amount</th>
+      <th>loan term</th>
+      <th>lender name</th>
+      <th>loan status</th>
+      <th>loan edit</th>
+      <th>loan show</th>
+      <th>loan destroy</th>
+    </tr>
 <% @loans.consolidation.each do |loan|%>
-  <%= render partial: "loan_details", locals: {loan: loan, borrower: @borrower} %>
-<% end %>
-
+      <tr>
+        <%= render partial: "loan_details", locals: {loan: loan, borrower: @borrower} %>
+      </tr>
+    <% end %>
+  </table>
 <div>
   <%= link_to 'Apply Now', new_borrower_loan_path(current_borrower)%>
 </div>
