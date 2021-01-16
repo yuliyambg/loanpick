@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application allows borrowers to apply for loans with different lenders. There are three different types of loans: Student loan, Home Improvement Loan (HIL) and Consolidation loan.
+After borrower applies for a loan, the loan shows under the dashboard for the corresponding lender and lender can approve the loan. After loan approval, the borrower sees loan status "Accepted". While waiting for approval, the loan status shows "Waiting".
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+To get started with the app, clone the repo and then install the needed gems:
 
-* System dependencies
+* bundle install
 
-* Configuration
+Next, migrate the database:
 
-* Database creation
+* rake db:migrate
 
-* Database initialization
+Then run the app in a local server:
 
-* How to run the test suite
+* rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
 
-* Deployment instructions
+Bug reports and pull requests are welcome on GitHub at
 
-* ...
+## Additional Information
+
+Borrower must Signup first in order to apply for a loan. Two type of login is offered to user/borrower: with email address and password or login with Google using Google Omniauth Strategy. In order to test Google Omniauth Strategy you need to create .env file
+under the root directory.
+There is a separte signup and login for lender.
+
+### License
+
+All source code is available under the MIT License. See LICENSE.md for details.
+
