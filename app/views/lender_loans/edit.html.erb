@@ -1,0 +1,36 @@
+<table style="width:100%">
+  <tr>
+    <th>borrower first name</th>
+    <th>borrower last name</th>
+    <th>borrower DOB</th>
+    <th>borrower str address</th>
+    <th>borrower city</th>
+    <th>borrower zipcode</th>
+    <th>borrower category</th>
+    <th>borrower amount</th>
+    <th>borrower term</th>
+  </tr>
+  <tr>
+    <td><%=@loan.borrower.first_name %></td>
+    <td><%=@loan.borrower.last_name %></td>
+    <td><%=@loan.borrower.dob %></td>
+    <td><%=@loan.borrower.street_address %></td>
+    <td><%=@loan.borrower.city %></td>
+    <td><%=@loan.borrower.zipcode %></td>
+    <td><%=@loan.category %></td>
+    <td><%=@loan.amount %></td>
+    <td><%=@loan.term %></td>
+  </tr>
+</table>
+<%= form_for [@lender,@loan], url: {action: "update"} do |f| %>
+  <div>
+    <%=f.label :accept %> $
+    <%=f.check_box :accept %>
+
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

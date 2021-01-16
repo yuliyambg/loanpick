@@ -1,0 +1,25 @@
+ <%= flash[:warning] %>
+ <%= flash[:notice] %>
+
+<table style="width:100%">
+  <tr>
+    <th>loan id</th>
+    <th>loan category</th>
+    <th>loan amount</th>
+    <th>loan term</th>
+    <th>borrower first name</th>
+    <th>borrower last name</th>
+    <th>loan status</th>
+  </tr>
+ <% @loans.each do |loan| %>
+   <tr>
+     <td><%=loan.id %></td>
+     <td><%=loan.category %></td>
+     <td><%= loan.amount %></td>
+     <td><%= loan.term %></td>
+     <td><%=loan.borrower.first_name %></td>
+     <td> <%=loan.borrower.last_name %></td>
+     <td><%= link_to loan.accept ? "ACCEPTED": "WAITING", edit_lender_lender_loan_path(@lender,loan) %></td>
+   </tr>
+ <%end %>
+</table>

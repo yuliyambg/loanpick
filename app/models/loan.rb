@@ -9,5 +9,6 @@ class Loan < ApplicationRecord
   scope :consolidation, -> { where(category: "Consolidation") }
   scope :fixed, -> { where(term: "120 months fixed") }
   scope :variable, -> { where(term: "180 months variable")}
+  scope :accept, -> { where(accept: true)}
 
 end

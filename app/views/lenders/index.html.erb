@@ -1,0 +1,7 @@
+<%= flash[:warning] %>
+<% @lenders.each do |lender| %>
+
+    <div>
+      <%= link_to lender.name, lender_path(lender) %>
+    </div>
+<% end %>
