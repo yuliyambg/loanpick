@@ -27,12 +27,7 @@ class LenderLoansController < ApplicationController
   private
 
   def get_lender
-    # @lender = Lender.find(params[:lender_id])
     @lender = Lender.where(id: params[:lender_id]).first
-    # unless @lender
-    #   flash[:warning] = "Lender doesn't exists"
-    #   redirect_to lenders_path(@lenders)
-    # end
     if @lender.nil?  || (@lender && (@lender.id != session[:lender_id]))
       flash[:notice] = "Do not have access"
       if session[:lender_id]

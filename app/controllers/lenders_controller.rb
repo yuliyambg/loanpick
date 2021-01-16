@@ -1,6 +1,5 @@
 class LendersController < ApplicationController
-  # before_action :require_login, except: [:new, :create]
-  before_action :get_lender
+  before_action :get_lender, except: [:new, :create]
 
   def new
     @lender = Lender.new

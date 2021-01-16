@@ -1,6 +1,5 @@
 class BorrowersController < ApplicationController
-  # before_action :require_login, except: [:new, :create]
-  before_action :get_borrower
+  before_action :get_borrower, except: [:new, :create]
 
   def new
     @borrower = Borrower.new
@@ -27,11 +26,11 @@ class BorrowersController < ApplicationController
   private
 
   def get_borrower
-  @borrower = Borrower.where(id: params[:borrower_id]).first
+  @borrower = Borrower.where(id: params[:id]).first
   if @borrower.nil? ||(@borrower && (@borrower.id != session[:borrower_id]))
     flash[:notice] = "Do not have access"
     if session[:borrower_id]
-      redirect_to borrower_loans_path(session[:borrower_id])
+      redirect_to borrower_path(session[:borrower_id])
     else
       redirect_to root_path
     end
