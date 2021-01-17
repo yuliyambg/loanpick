@@ -1,6 +1,5 @@
  <div class="paddingleft">
 
-
 <% if @borrower.errors.any? %>
     <h2>There are some errors:</h2>
     <ul>
@@ -48,13 +47,13 @@
   </div>
 
   <div class="<%= 'field_with_errors' if @borrower.errors[:password].any? %>"
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
   </div>
 
   <div class="<%= 'field_with_errors' if @borrower.errors[:password].any? %>"
-  <%= f.label :confirm_password %><br>
-  <%= f.password_field :password_confirmation %><br>
+    <%= f.label :confirm_password %><br>
+    <%= f.password_field :password_confirmation %><br>
   </div>
 
      <br>
