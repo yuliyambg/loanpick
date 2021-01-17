@@ -19,7 +19,4 @@ class Borrower < ApplicationRecord
   # validates :password, length: { in: 6..20 }
   # validates_presence_of :password_confirmation
 
-  # def user_authorized?
-  #   current_borrower == self.id
-  # end
 end
