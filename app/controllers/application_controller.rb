@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_borrower, :current_lender, :require_login, :is_borrower_logged_in?, :is_lender_logged_in?, :user_authorized? #:admin_only,
+  helper_method :current_borrower, :current_lender, :is_borrower_logged_in?, :is_lender_logged_in?
 
   def is_borrower_logged_in?
     !!current_borrower
@@ -16,6 +16,5 @@ class ApplicationController < ActionController::Base
   def current_lender
     @current_lender ||= Lender.find_by(id: session[:lender_id])
   end
-
 
 end

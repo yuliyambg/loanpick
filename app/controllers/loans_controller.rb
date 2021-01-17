@@ -1,5 +1,6 @@
 class LoansController < ApplicationController
   before_action :get_borrower
+  before_action :get_loan, only: [:edit, :update, :show]
 
   def index
     @loans = @borrower.loans
@@ -19,7 +20,7 @@ class LoansController < ApplicationController
   end
 
   def edit
-    @loan = @borrower.loans.where(id: params[:id]).first
+    # @loan = @borrower.loans.where(id: params[:id]).first
     if @loan.accept
       flash[:warning] = "Lender already approved loan ID: #{@loan.id} "
       redirect_to borrower_loans_path(@borrower)
@@ -27,7 +28,7 @@ class LoansController < ApplicationController
   end
 
   def update
-    @loan = @borrower.loans.where(id: params[:id]).first
+    # @loan = @borrower.loans.where(id: params[:id]).first
     if @loan.update(loan_params)
       redirect_to borrower_loans_path(@borrower)
     else
@@ -36,7 +37,7 @@ class LoansController < ApplicationController
   end
 
   def show
-    @loan = @borrower.loans.where(id: params[:id]).first
+    # @loan = @borrower.loans.where(id: params[:id]).first
     unless @loan
       flash[:warning] = "Loan does not exist"
       redirect_to borrower_loans_path(session[:borrower_id])
@@ -52,6 +53,10 @@ class LoansController < ApplicationController
   private
   def loan_params
     params.require(:loan).permit(:amount, :category, :term, :lender_id)
+  end
+
+  def get_loan
+    @loan = @borrower.loans.where(id: params[:id]).first
   end
 
   def get_borrower
