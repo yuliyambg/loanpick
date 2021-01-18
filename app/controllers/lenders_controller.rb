@@ -20,11 +20,11 @@ class LendersController < ApplicationController
   end
 
   def show
-    @lender = Lender.where(id: params[:id]).first
-    unless @lender
-      flash[:warning] = "Lender does not exists"
-      redirect_to lenders_path(@lenders)
-    end
+    # @lender = Lender.where(id: params[:id]).first
+    # unless @lender
+    #   flash[:warning] = "Lender does not exists"
+    #   redirect_to lenders_path(@lenders)
+    # end
   end
 
   private
