@@ -20,7 +20,7 @@ class BorrowersController < ApplicationController
   end
 
   def show
-    @borrower = Borrower.find_by(id: params[:id])
+    # @borrower = Borrower.find_by(id: params[:id])
   end
 
   private
